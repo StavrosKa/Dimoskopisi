@@ -1,0 +1,92 @@
+﻿
+<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="dimoskopisi.SiteMaster" %>
+
+<%@ Import Namespace="dimoskopisi" %>
+<%@ Import Namespace="Microsoft.AspNet.Identity" %>
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Aξιολόγηση Ασθενών στα Νοσοκομεία</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+    
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    
+    <form runat="server"> 
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+   
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" runat="server" href="~/">Αρχική</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+       <li><a runat="server" id="nosokomeia" href="~/nosokomeia">ΝΟΣΟΚΟΜΕΙΑ</a></li>
+       <li><a runat="server" id="about" href="~/About">ΠΛΗΡΟΦΟΡΙΕΣ</a></li>
+       <li runat ="server" id="statistikaMenu"><a runat="server" id="stat" href="~/statistika1.aspx">Στατιστικά</a></li>
+       <li><a runat="server" id="logout" href="~/logout.aspx">ΕΞΟΔΟΣ</a></li>
+      </ul>
+        <span style="color:black;font-size:140%;position:fixed;padding-left:40px;padding-top:11px;font-weight: bold;">
+             <asp:Label ID="LabelDimosk" runat="server" Text=""></asp:Label>
+        </span>
+    </div>
+  </div>
+</nav>
+ 
+<style>
+footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2086a2;
+}
+</style>
+<div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr /> 
+<footer class="container-fluid text-center">
+  <a href="#" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Σχεδίαση, Προγραμματισμός:<a href="http://www.hc-crete.gr/εφαρμογες/διευθυνση-πληροφορικης-διοικησης-7ης-υπε-κρητης" title="Διεύθυνση Πληροφορικής 7ης ΥΠΕ Κρήτης">© Διεύθυνση Πληροφορικής 7ης ΥΠΕ Κρήτης, 2016</a></p> 
+</footer>
+    </div>
+       
+    </form> 
+</body>
+</html>
